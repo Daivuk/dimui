@@ -3,24 +3,6 @@
 #include <vector>
 
 
-// 64-bit FNV-1a
-#define FNV_OFFSET_64 0xcbf29ce484222325ULL
-#define FNV_PRIME_64  0x100000001b3ULL
-uint64_t fnv1a_64(const void* data, size_t size)
-{
-    const unsigned char* ptr = (const unsigned char*)data;
-    uint64_t hash = FNV_OFFSET_64;
-
-    for (size_t i = 0; i < size; i++)
-    {
-        hash ^= ptr[i];
-        hash *= FNV_PRIME_64;
-    }
-
-    return hash;
-}
-
-
 struct control_state
 {
     dimui_rect_t rect;
